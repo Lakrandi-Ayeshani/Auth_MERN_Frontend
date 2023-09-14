@@ -1,42 +1,45 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import { useRegisterMutation } from '../slices/usersApiSlice';
+import { setCredentials } from '../slices/AuthSlice';
 import FormContainer from '../components/FormContainer';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useLoginMutation } from '../slices/usersApiSlice';
-// import { setCredentials } from '../slices/authSlice';
-// import { toast } from 'react-toastify';
-// import Loader from '../components/Loader';
+import Loader from '../components/Loader';
 
 const RegisterScreen = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-//   const [login, { isLoading }] = useLoginMutation();
+  const [register, { isLoading }] = useRegisterMutation();
 
-//   const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth);
 
-//   useEffect(() => {
-//     if (userInfo) {
-//       navigate('/');
-//     }
-//   }, [navigate, userInfo]);
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/task');
+    }
+  }, [navigate, userInfo]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log('submit');
-    // try {
-    //   const res = await login({ email, password }).unwrap();
-    //   dispatch(setCredentials({ ...res }));
-    //   navigate('/');
-    // } catch (err) {
-    //   toast.error(err?.data?.message || err.error);
-    // }
+    if(password !== confirmPassword) {
+      toast.error('Passwords do not match');
+    } else {
+      try {
+        const res = await register({ name, email, password }).unwrap();
+        dispatch(setCredentials({ ...res }));
+        navigate('/');
+      } catch (err) {
+        toast.error(err?.data?.message || err.error);
+      }
+    }
   };
 
   return (
@@ -95,7 +98,7 @@ const RegisterScreen = () => {
         </Button>
       </Form>
 
-      {/* {isLoading && <Loader />} */}
+      {isLoading && <Loader />}
 
       <Row className='py-3'>
         <Col>
