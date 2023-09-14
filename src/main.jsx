@@ -14,13 +14,24 @@ import './index.css';
 import HomeScreen from './screens/homeScreen.jsx';
 import LoginScreen from './screens/LoginScreen.jsx';
 import RegisterScreen from './screens/RegisterScreen.jsx';
+import ProfileScreen from './screens/ProfileScreen.jsx';
+import PrivateRoute from './components/PeivateRoute.jsx';
+import AddTaskScreen from './screens/AddTaskScreen.jsx';
+import TaskScreen from './screens/TaskScreen.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
+      {/* Public Routes */}
       <Route index = {true} path='/' element={<HomeScreen />} />
       <Route index = {true} path='/login' element={<LoginScreen />} />
       <Route index = {true} path='/register' element={<RegisterScreen />} />
+      {/* Privet Routes  */}
+      <Route path= '' element={<PrivateRoute />}>
+        <Route path= '/profile' element={<ProfileScreen />}/>
+        <Route path= '/createtask' element={<AddTaskScreen />}/>
+        <Route path= '/task' element={<TaskScreen/>}/>
+      </Route>
     </Route>
   )
 )
