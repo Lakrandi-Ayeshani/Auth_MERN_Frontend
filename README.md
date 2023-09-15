@@ -1,8 +1,32 @@
-# React + Vite
+# TaskZen task management application
+A project management web application where users can create tasks and update their status, as well as assign these tasks to users. Includes features such as JWT-based authentication, public and protected routes, user account creation and management.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Backend
 
-Currently, two official plugins are available:
+[Backend Link](https://github.com/Lakrandi-Ayeshani/Fitness_Assistance/tree/main/backend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Screenshots
+
+### Home Page View
+
+![Home Page](docs/home.png)
+
+### Sign Up Page View
+
+![Sign Up Page](docs/signUp.png)
+
+### Sign In Page View
+
+![Sign In Page](docs/signIn.png)
+
+### Update Profile Page View
+
+![Update ProfilePage](docs/updateProfile.png)
+
+### Create Task Page View
+
+![Create Task Page](docs/createTask.png)
+
+### Task Screen Page View
+
+![Task Screen Page](docs/taskScreen.png)
