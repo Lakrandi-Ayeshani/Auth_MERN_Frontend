@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/AuthSlice';
+import Logo from "../assets/Logo.jpg"
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -29,7 +30,15 @@ const Header = () => {
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>MERN Auth</Navbar.Brand>
+            <Navbar.Brand>
+              <img 
+                src={Logo}
+                width="30"
+                height="30"
+                className='d-inlin-block align-top'
+              />
+              TaskZen
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>

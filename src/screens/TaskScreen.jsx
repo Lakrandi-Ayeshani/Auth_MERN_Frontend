@@ -28,7 +28,7 @@ const TaskScreen = () => {
       }};    
       fetchData();
     }
-  });
+  },[tasks]);
 
   const handleAddTask = () => {
     navigate('/createtask')
