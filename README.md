@@ -9,24 +9,24 @@ A project management web application where users can create tasks and update the
 
 ### Home Page View
 
-![Home Page](docs/home.png)
+![Home Page](ImgDocs/home.png)
 
 ### Sign Up Page View
 
-![Sign Up Page](docs/signUp.png)
+![Sign Up Page](ImgDocs/signUp.png)
 
 ### Sign In Page View
 
-![Sign In Page](docs/signIn.png)
+![Sign In Page](ImgDocs/signIn.png)
 
 ### Update Profile Page View
 
-![Update ProfilePage](docs/updateProfile.png)
+![Update ProfilePage](ImgDocs/updateProfile.png)
 
 ### Create Task Page View
 
-![Create Task Page](docs/createTask.png)
+![Create Task Page](ImgDocs/createTask.png)
 
 ### Task Screen Page View
 
-![Task Screen Page](docs/taskScreen.png)
+![Task Screen Page](ImgDocs/taskScreen.png)
