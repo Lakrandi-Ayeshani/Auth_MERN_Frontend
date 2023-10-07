@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/AuthSlice';
-import Logo from "../assets/Logo.jpg"
+import Logo from "../assets/Logo.jpg";
+import User from "../assets/Ayeshani.jpg"
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -45,6 +46,12 @@ const Header = () => {
             <Nav className='ms-auto'>
               {userInfo ? (
                 <>
+                  <img 
+                    src={User}
+                    width="30"
+                    height="30"
+                    className='d-inlin-block align-top mt-1 user-image' 
+                  />
                   <NavDropdown title={userInfo.name} id='username'>
                     <LinkContainer to='/profile'>
                       <NavDropdown.Item>Profile</NavDropdown.Item>
