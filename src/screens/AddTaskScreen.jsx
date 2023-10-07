@@ -20,12 +20,13 @@ const AddTaskScreen = () => {
     e.preventDefault();
       try {
         const res = await createTask({ title, description, status: "todo" }).unwrap();
+        console.log(res);
         if(res) {
-        toast.success("Added task successfully");
-        navigate('/task');
-        }
+          toast.success("Added task successfully");
+          navigate('/task');
+        } 
       } catch (err) {
-        toast.error(err?.data?.message || err.error);
+          toast.error(err?.data?.message || err.error || "Something wrong, Try again later ");
       }
   };
 
