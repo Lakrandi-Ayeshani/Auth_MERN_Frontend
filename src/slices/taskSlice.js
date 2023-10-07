@@ -7,13 +7,31 @@ const taskSlice = createSlice({
   initialState: {
     tasks: [],
     isFetched: true,
+    todo: [],
+    inProgress: [],
+    done: [],
   },
   reducers: {
     setTasks: (state, action) => {
-      state.tasks = action.payload.tasks;
-      
-      state.isFetched = false;    
-      console.log(state.tasks, state.isFetched)      
+      // state.tasks = action.payload.tasks;
+      // console.log(action.payload.tasks)
+      const todoTemp = [];
+      const doneTemp = [];
+      const inProgressTemp = []
+      action.payload.tasks.forEach(task => {
+        console.log('tasks', task)
+        if(task.status === "todo"){
+          todoTemp.push(task);
+        } else if (task.status === "in progress") {
+          inProgressTemp.push(task);
+        } else if (task.status === "done") {
+          doneTemp.push(task);
+        }
+      });
+      state.todo = todoTemp;
+      state.inProgress = inProgressTemp;
+      state.done = doneTemp;
+      state.isFetched = false;         
     },
   }
 });
